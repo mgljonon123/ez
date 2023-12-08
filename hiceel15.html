@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta chatset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body {
+        text-align: center;
+        background-color: grey;
+        display: center;
+        position: relative;
+        top: 200px;
+      }
+      p {
+        color: white;
+        font-size: 100px;
+      }
+      button {
+        background-color: red;
+        color: white;
+        border-radius: 7px;
+        border: none;
+        scale: 110%;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="tex"></p>
+    <button onclick="ref()">Get Random Quote</button>
+    <script>
+      function ref() {
+        apiURL = "https://api.gameofthronesquotes.xyz/v1/random";
+
+        fetch(apiURL, {
+          method: "GET",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("tex").innerHTML = data.sentence;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    </script>
+  </body>
+</html>
