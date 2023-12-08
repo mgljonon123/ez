@@ -7,27 +7,34 @@
     <style>
       body {
         text-align: center;
-        background-color: grey;
-        display: center;
-        position: relative;
-        top: 200px;
+        background-color: rgb(143, 40, 40);
+        display: flex;
+        overflow: hidden;
+        height: 100vh;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
       }
       p {
+        position: relative;
         color: white;
         font-size: 100px;
+        font-family: fantasy;
       }
       button {
         background-color: red;
         color: white;
+        top: 50px;
+        position: absolute;
         border-radius: 7px;
         border: none;
-        scale: 110%;
+        scale: 200%;
       }
     </style>
   </head>
   <body>
-    <p id="tex"></p>
     <button onclick="ref()">Get Random Quote</button>
+    <p id="tex"></p>
     <script>
       function ref() {
         apiURL = "https://api.gameofthronesquotes.xyz/v1/random";
@@ -44,6 +51,7 @@
             console.log(error);
           });
       }
+      ref();
     </script>
   </body>
 </html>
